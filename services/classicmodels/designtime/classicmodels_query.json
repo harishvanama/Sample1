@@ -1,0 +1,42 @@
+{
+  "myquery" : {
+    "name" : "myquery",
+    "description" : "myquery",
+    "version" : "V2",
+    "queryString" : "select addressLine2,sum(phone) from customers group by addressLine2",
+    "countQueryString" : "select count(*) from (select addressLine2,sum(phone) from customers group by addressLine2) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "response" : {
+      "typeRef" : "com.sample1.classicmodels.models.query.MyqueryResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "addressLine2",
+        "fieldName" : "addressLine2",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "sum(phone)",
+        "fieldName" : "sum_phone_",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.math.BigDecimal",
+          "list" : false
+        }
+      } ]
+    }
+  }
+}

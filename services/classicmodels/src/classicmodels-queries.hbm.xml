@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <sql-query name="myquery">
+        <![CDATA[
+        select addressLine2,sum(phone) from customers group by addressLine2
+        ]]>
+    </sql-query>
+
+    <sql-query name="myquery__count">
+        <![CDATA[
+        select count(*) from (select addressLine2,sum(phone) from customers group by addressLine2) wmTempTable
+        ]]>
+    </sql-query>
+</hibernate-mapping>
